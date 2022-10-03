@@ -1,5 +1,5 @@
 // Project Title
-// Your Name
+// Kati Kesur
 // Date
 //
 // Extra for Experts:
@@ -8,8 +8,9 @@
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+
 }
 
 function draw() {
-  background(220);
+  background("background.jpg");
 }
