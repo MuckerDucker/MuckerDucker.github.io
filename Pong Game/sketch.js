@@ -6,24 +6,25 @@
 // Added sound when ball is in contact with the board
 
 // defining global variables
-let x = 0;
-let y = 0;
-let dx = 3;
-let dy = 2;
-let circleSize = 50;
+// let x = 0;
+// let y = 0;
+// let dx = 3;
+// let dy = 2;
+// let circleSize = 50;
+// let paddleSize;
 
-let state = "start";
-let backgroundImg;
+// let state = "start";
+// let backgroundImg;
 
-function preload() {
-  backgroundImg = loadImage("Pong_start.png");
-}
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-}
+// function preload() {
+//   backgroundImg = loadImage("Pong_start.jpg");
+// }
+// function setup() {
+//   createCanvas(windowWidth, windowHeight);
+// }
 
 function draw(){
-  image(backgroundImg, 0,0, width, height);
+  background("Pong_start.jpg");
 }
 
 // function draw() {
@@ -61,6 +62,7 @@ function draw(){
 //   y += dy;
 // }
 
+// 
 // function bounceIfNeeded() {
 //   //bounce circle off right wall
 //   if (x >= width - circleSize) {
@@ -81,4 +83,23 @@ function draw(){
 // }
 
 // // paddles
+// // moving paddles
 
+// function bounceOffRightPaddle() {
+//   
+//   if (x >= width - circleSize - paddleSize) {
+//     dx *= -1;
+//   }
+//   //bounce circle off left wall
+//   else if (x <= 0) {
+//     dx *= -1;
+//   }
+//   //bounce circle off bottom wall
+//   if (y >= height - circleSize) {
+//     dy *= -1;
+//   }
+//   //bounce circle off top wall
+//   if (y <= 0) {
+//     dy *= -1;
+//   }
+// }
