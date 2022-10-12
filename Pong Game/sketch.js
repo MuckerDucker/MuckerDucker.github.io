@@ -14,20 +14,26 @@
 // let paddleSize;
 
 // let state = "start";
-// let backgroundImg;
-
-// function preload() {
-//   backgroundImg = loadImage("Pong_start.jpg");
-// }
-// function setup() {
-//   createCanvas(windowWidth, windowHeight);
-// }
-
-// function draw(){
-//   background("Pong_start.jpg");
-// }
+let backgroundImg;
 
 // function draw() {
+//     background(220);
+//     image(cowImage, mouseX, mouseY,cowImage.width*scalar,cowImage.height*scalar);
+//   } 
+function preload() {
+  backgroundImg = loadImage("Pong_start.jpg");
+}
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+}
+
+function draw(){
+  background(backgroundImg);
+
+}
+
+// function draw() {
+     
 //   drawCircle();
 //   moveCircle();
 //   bounceIfNeeded(); 
