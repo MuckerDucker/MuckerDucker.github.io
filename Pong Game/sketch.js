@@ -23,9 +23,9 @@
 //   createCanvas(windowWidth, windowHeight);
 // }
 
-function draw(){
-  background("Pong_start.jpg");
-}
+// function draw(){
+//   background("Pong_start.jpg");
+// }
 
 // function draw() {
 //   drawCircle();
