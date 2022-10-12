@@ -13,6 +13,7 @@ let dy = 2;
 let circleSize = 30;
 let paddleSize;
 let state = "start";
+let backgroundImg;
 
 function preload() {
   backgroundImg = loadImage("Pong_start.jpg");
@@ -32,9 +33,12 @@ function draw(){
   }
   if (state === "main"){
     backgroundImg = loadImage("Pong_main.jpg");
+    drawCircle();
+    moveCircle();
+    bounceOffBottomTop();
     leftPaddle();
     // bounceOffRightPaddle();
-    // bounceOffLeftPaddle();
+    bounceOffLeftPaddle();
   }
 }
 
@@ -66,7 +70,7 @@ function bounceOffWall() {
   //bounce circle off left wall
   else if (x <= 0) {
     dx *= -1;
-  }1
+  }
   //bounce circle off bottom wall
   if (y >= height - circleSize/2) {
     dy *= -1;
@@ -77,29 +81,27 @@ function bounceOffWall() {
   }
 }
 
+//circle physics
+function bounceOffBottomTop(){
+  //bounce circle off bottom wall
+  if (y >= height - circleSize/2) {
+    dy *= -1;
+  }
+  //bounce circle off top wall
+  if (y <= 0) {
+    dy *= -1;
+  }
+}
 // paddles
 
 // moving paddles
 function leftPaddle(){
-  rect(width/80, y, width/110, height/8)
+  rect(width/80, y, width/110, height/8);
 }
 
-
-// function bounceOffRightPaddle() {
-//   
-//   if (x >= width - circleSize - paddleSize) {
-//     dx *= -1;
-//   }
-//   //bounce circle off left wall
-//   else if (x <= 0) {
-//     dx *= -1;
-//   }
-//   //bounce circle off bottom wall
-//   if (y >= height - circleSize) {
-//     dy *= -1;
-//   }
-//   //bounce circle off top wall
-//   if (y <= 0) {
-//     dy *= -1;
-//   }
-// }
+function bounceOffLeftPaddle() {
+  //bounce circle off left paddle
+  if (x <= width - width/80 - width/110 - circleSize) {
+    dx *= -1;
+  }
+}
