@@ -92,14 +92,14 @@ function bounceOffWall() {
 
 //circle and paddle collision
 function bounceOffPaddles(){
-    //bounce circle off right wall
-    if (cx >= width - circleSize/2) {
-      dx *= -1;
-    }
-    //bounce circle off left wall
-    else if (cx <= 0) {
-      dx *= -1;
-    }
+  //bounce circle off right wall
+  if (cx >= width - circleSize/2) {
+    dx *= -1;
+  }
+  //bounce circle off left wall
+  else if (cx <= 0) {
+    dx *= -1;
+  }
   //bounce circle off bottom wall
   if (cy >= height - circleSize/2) {
     dy *= -1;
@@ -119,6 +119,7 @@ function leftPaddle(){
   if (keyIsDown(83)){
     rect(0, y+= 3);
   }
+  if ()
 }
 
 function rightPaddle(){
@@ -130,7 +131,6 @@ function rightPaddle(){
     rect(0, yp+= 3);
   }
 }
-
 
 
 // if (cx ===  + circleSize/2 && y )
