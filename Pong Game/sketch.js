@@ -97,6 +97,10 @@ function bounceOffBottomTop(){
 // moving paddles
 function leftPaddle(){
   rect(width/80, y, width/110, height/8);
+  if (keyPressed === 87){
+    rect(x++, y)
+  }
+
 }
 
 function bounceOffLeftPaddle() {
