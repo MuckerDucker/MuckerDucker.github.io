@@ -119,7 +119,14 @@ function leftPaddle(){
   if (keyIsDown(83)){
     rect(0, y+= 3);
   }
-  if ()
+
+  // preventing left paddle from going off-screen
+  if (y > height - height/8){
+    y = height - height/8;
+  }
+  if (y < 0){
+    y = 0;
+  }
 }
 
 function rightPaddle(){
@@ -130,7 +137,15 @@ function rightPaddle(){
   if (keyIsDown(40)){
     rect(0, yp+= 3);
   }
+  // preventing right paddle from going off-screen
+  if (yp > height - height/8){
+    yp = height - height/8;
+  }
+  if (yp < 0){
+    yp = 0;
+  }
 }
+
 
 
 // if (cx ===  + circleSize/2 && y )
