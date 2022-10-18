@@ -16,7 +16,7 @@ let paddleSize;
 let state = "start";
 let backgroundImg;
 let hit = false;
-let score1 = 0
+let score1 = 0;
 let score2 = 0;
 
 // Setting up canvas and image
@@ -143,14 +143,15 @@ function rightPaddle(){
 
 // bounce circle off paddles - code used from collide2D
 function bounceOffLeftPaddle() {
-    rect(0, y, width/90, height/8);
-    circle(cx, cy, circleSize);
+  rect(0, y, width/90, height/8);
+  circle(cx, cy, circleSize);
 
-    hit = collideRectCircle(0, y, width/90, height/8, cx, cy, circleSize);
+  hit = collideRectCircle(0, y, width/90, height/8, cx, cy, circleSize);
 
-    if(hit === true){
-      dx *= -1;
-    }
+  if(hit === true){
+    dx *= -1;
+    
+  }
 }
 
 function bounceOffRightPaddle() {
@@ -166,15 +167,15 @@ function bounceOffRightPaddle() {
 
 function winner(){
   if (cx === width - circleSize/2) {
-      textSize(width/14);
-      text("Player one Wins!", width/5, height/5)
-      noLoop();
-    }
-    else if (cx === 0) {
-      textSize(width/14);
-      text("Player Two Wins!", width/5, height/5);
-      noLoop();
-    }
+    textSize(width/14);
+    text("Player one Wins!", width/5, height/5);
+    noLoop();
+  }
+  else if (cx === 0) {
+    textSize(width/14);
+    text("Player Two Wins!", width/5, height/5);
+    noLoop();
+  }
 }
 
 
