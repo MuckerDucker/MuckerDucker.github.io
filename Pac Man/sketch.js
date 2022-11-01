@@ -13,7 +13,15 @@
 let PacX;
 let PacY;
 
-
+let grid = [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -21,6 +29,7 @@ function setup() {
 
 function draw() {
   background(220);
+  displayGrid(grid);
 }
 
 function ShowPac(){
@@ -31,6 +40,22 @@ function ShowPac(){
   };
 }
 
+function displayGrid(grid) {
+  let cellWidth = width / grid[0].length;
+  let cellHeight = height / grid.length;
+  for (let y=0; y<grid.length; y++) {
+    for (let x=0; x<grid[y].length; x++) {
+      if (grid[y][x] === 0) {
+        fill("black");
+      }
+      else if (grid[y][x] === 1) {
+        fill("blue");
+      }
+      rect(x*cellWidth, y*cellHeight, cellWidth, cellHeight);
+    }
+  }
+}
+
 function movePac(){
   if (keyIsDown(LEFT_ARROW)){
     PacX += -5;
@@ -38,10 +63,10 @@ function movePac(){
   if (keyIsDown(RIGHT_ARROW)){
     PacX += 5;
   }
-  if (keyIsDown(LEFT_ARROW)){
-    PacX += 5;
+  if (keyIsDown(UP_ARROW)){
+    PacY += -5;
   }
-  if (keyIsDown(LEFT_ARROW)){
-    PacX += 5;
+  if (keyIsDown(DOWN_ARROW)){
+    PacY += 5;
   }
 }
