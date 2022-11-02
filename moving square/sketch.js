@@ -21,6 +21,7 @@ let catImg;
 function preLoad(){
   earthImg = loadImage("earth.jpg");
   brownImg = loadImage("brown.jpg");
+  catImg = loadImage
 }
 function setup() {
   createCanvas(windowWidth, windowHeight);
