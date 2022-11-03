@@ -10,10 +10,11 @@
 
 // defining global variables
 
-let PacX;
-let PacY;
+let pacX;
+let pacY;
+let pac;
 
-let grid = [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+let grid = [[1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -22,6 +23,12 @@ let grid = [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
+
+function preLoad(){
+
+  pac = loadImage("pac.png");
+}
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -32,10 +39,10 @@ function draw() {
   displayGrid(grid);
 }
 
-function ShowPac(){
-  let Pac ={
-    x: PacX,
-    y: PacY,
+function showPac(){
+  let pac ={
+    x: pacX,
+    y: pacY,
     colour: "yellow"
   };
 }
@@ -48,8 +55,11 @@ function displayGrid(grid) {
       if (grid[y][x] === 0) {
         fill("black");
       }
-      else if (grid[y][x] === 1) {
+      else if (grid[y][x] === 2) {
         fill("blue");
+      }
+      else if(grid[y][x] === 1){
+        image(pac, x*cellWidth, y*cellHeight, cellWidth, cellHeight);
       }
       rect(x*cellWidth, y*cellHeight, cellWidth, cellHeight);
     }
@@ -58,15 +68,15 @@ function displayGrid(grid) {
 
 function movePac(){
   if (keyIsDown(LEFT_ARROW)){
-    PacX += -5;
+    pacX += -5;
   }
   if (keyIsDown(RIGHT_ARROW)){
-    PacX += 5;
+    pacX += 5;
   }
   if (keyIsDown(UP_ARROW)){
-    PacY += -5;
+    pacY += -5;
   }
   if (keyIsDown(DOWN_ARROW)){
-    PacY += 5;
+    pacY += 5;
   }
 }
