@@ -10,23 +10,29 @@
 
 // defining global variables
 
-let pacX;
-let pacY;
-let pac;
+let cellWidth;
+let cellHeight;
+let pacX = 0;
+let pacY = 0;
+let pacImg;
+let B;
 
-let grid = [[1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
+let grid = [
+  [B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B],
+  [B, 0, 0, 0, 0, B, 0, 0, 0, 0, 0, 0, 0, 0, B, 0, 0, 0, 0, B],      
+  [B, 0, B, B, 0, B, 0, B, B, B, B, B, B, 0, B, 0, B, B, 0, B],
+  [B, 0, B, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, B, 0, B],
+  [B, 0, B, 0, B, B, 0, B, B, 0, 0, B, B, 0, B, B, 0, B, 0, B],
+  [B, 0, 0, 0, 0, 0, 0, B, 0, 0, 0, 0, B, 0, 0, 0, 0, 0, 0, B],
+  [B, 0, B, 0, B, B, 0, B, B, B, B, B, B, 0, B, B, 0, B, 0, B],
+  [B, 0, B, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, B, 0, B],
+  [B, 0, B, B, 0, B, 0, B, B, B, B, B, B, 0, B, 0, B, B, 0, B],
+  [B, 0, 0, 0, 0, B, 0, 0, 0, 0, 0, 0, 0, 0, B, 0, 0, 0, 0, B],
+  [B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B]];
 
 function preLoad(){
 
-  pac = loadImage("pac.png");
+  pacImg = loadImage("pac.png");
 }
 
 
@@ -39,13 +45,9 @@ function draw() {
   displayGrid(grid);
 }
 
-function showPac(){
-  let pac ={
-    x: pacX,
-    y: pacY,
-    colour: "yellow"
-  };
-}
+// function showPac(){
+
+// }
 
 function displayGrid(grid) {
   let cellWidth = width / grid[0].length;
@@ -55,28 +57,35 @@ function displayGrid(grid) {
       if (grid[y][x] === 0) {
         fill("black");
       }
-      else if (grid[y][x] === 2) {
+      else if (grid[y][x] === B) {
         fill("blue");
       }
       else if(grid[y][x] === 1){
-        image(pac, x*cellWidth, y*cellHeight, cellWidth, cellHeight);
+        image(pacImg, x*cellWidth, y*cellHeight, cellWidth, cellHeight);
       }
       rect(x*cellWidth, y*cellHeight, cellWidth, cellHeight);
     }
   }
 }
-
-function movePac(){
-  if (keyIsDown(LEFT_ARROW)){
-    pacX += -5;
-  }
-  if (keyIsDown(RIGHT_ARROW)){
-    pacX += 5;
-  }
-  if (keyIsDown(UP_ARROW)){
-    pacY += -5;
-  }
-  if (keyIsDown(DOWN_ARROW)){
-    pacY += 5;
-  }
-}
+ 
+// function movePac(){
+//   if (keyIsDown(LEFT_ARROW)){
+//     if (grid[pacY][pacX-1] === 0) {
+//       //reset old location to white
+//       grid[pacY][pacX] = 0;
+      
+//       //move
+//       pacX--;
+//     }
+//   }
+    
+//   if (keyIsDown(RIGHT_ARROW)){
+//     pacX += 5;
+//   }
+//   if (keyIsDown(UP_ARROW)){
+//     pacY += -5;
+//   }
+//   if (keyIsDown(DOWN_ARROW)){
+//     pacY += 5;
+//   }
+// }
