@@ -15,7 +15,9 @@ let cellHeight;
 let pacX = 0;
 let pacY = 0;
 let pacImg;
-let B;
+let foodImg;
+let B = 2;
+let M = 3;
 
 let grid = [
   [B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B],
@@ -23,16 +25,17 @@ let grid = [
   [B, 0, B, B, 0, B, 0, B, B, B, B, B, B, 0, B, 0, B, B, 0, B],
   [B, 0, B, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, B, 0, B],
   [B, 0, B, 0, B, B, 0, B, B, 0, 0, B, B, 0, B, B, 0, B, 0, B],
-  [B, 0, 0, 0, 0, 0, 0, B, 0, 0, 0, 0, B, 0, 0, 0, 0, 0, 0, B],
+  [0, 0, 0, 0, 0, 0, 0, B, 0, 0, 0, 0, B, 0, 0, 0, 0, 0, 0, 0],
   [B, 0, B, 0, B, B, 0, B, B, B, B, B, B, 0, B, B, 0, B, 0, B],
-  [B, 0, B, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, B, 0, B],
+  [B, 0, B, 0, 0, 0, 0, 0, 0, M, 0, 0, 0, 0, 0, 0, 0, B, 0, B],
   [B, 0, B, B, 0, B, 0, B, B, B, B, B, B, 0, B, 0, B, B, 0, B],
   [B, 0, 0, 0, 0, B, 0, 0, 0, 0, 0, 0, 0, 0, B, 0, 0, 0, 0, B],
   [B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B]];
 
-function preLoad(){
+function preload(){
 
   pacImg = loadImage("pac.png");
+  foodImg = loadImage("food.png");
 }
 
 
@@ -56,14 +59,18 @@ function displayGrid(grid) {
     for (let x=0; x<grid[y].length; x++) {
       if (grid[y][x] === 0) {
         fill("black");
+        rect(x*cellWidth, y*cellHeight, cellWidth, cellHeight);
+        image(foodImg, x*cellWidth, y*cellHeight, cellWidth, cellHeight);
       }
       else if (grid[y][x] === B) {
         fill("blue");
+        rect(x*cellWidth, y*cellHeight, cellWidth, cellHeight);
       }
-      else if(grid[y][x] === 1){
+      else if(grid[y][x] === M){
+        fill("black");
+        rect(x*cellWidth, y*cellHeight, cellWidth, cellHeight);
         image(pacImg, x*cellWidth, y*cellHeight, cellWidth, cellHeight);
       }
-      rect(x*cellWidth, y*cellHeight, cellWidth, cellHeight);
     }
   }
 }
