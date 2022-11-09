@@ -14,7 +14,7 @@ let cellWidth;
 let cellHeight;
 let pacX = 0;
 let pacY = 0;
-let pacImg;
+let pacRightImg;
 let foodImg;
 let B = 2;
 let M = 3;
@@ -34,10 +34,9 @@ let grid = [
 
 function preload(){
 
-  pacImg = loadImage("pac.png");
+  pacRightImg = loadImage("pac_right.png");
   foodImg = loadImage("food.png");
 }
-
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -69,30 +68,36 @@ function displayGrid(grid) {
       else if(grid[y][x] === M){
         fill("black");
         rect(x*cellWidth, y*cellHeight, cellWidth, cellHeight);
-        image(pacImg, x*cellWidth, y*cellHeight, cellWidth, cellHeight);
+        image(pacRightImg, x*cellWidth, y*cellHeight, cellWidth, cellHeight);
       }
     }
   }
 }
  
-// function movePac(){
-//   if (keyIsDown(LEFT_ARROW)){
-//     if (grid[pacY][pacX-1] === 0) {
-//       //reset old location to white
-//       grid[pacY][pacX] = 0;
+function movePac(){
+  if (keyIsDown(LEFT_ARROW)){
+    if (grid[pacY][pacX-1] === 0) {
+      //reset old location to white
+      grid[pacY][pacX] = 0;
       
-//       //move
-//       pacX--;
-//     }
-//   }
+      //move
+      pacX--;
+    }
+  }
     
-//   if (keyIsDown(RIGHT_ARROW)){
-//     pacX += 5;
-//   }
-//   if (keyIsDown(UP_ARROW)){
-//     pacY += -5;
-//   }
-//   if (keyIsDown(DOWN_ARROW)){
-//     pacY += 5;
-//   }
-// }
+  if (keyIsDown(RIGHT_ARROW)){
+    pacX += 5;
+  }
+  if (keyIsDown(UP_ARROW)){
+    pacY += -5;
+  }
+  if (keyIsDown(DOWN_ARROW)){
+    pacY += 5;
+  }
+  
+  if (pacX === [21][6] && keyIsDown(RIGHT_ARROW)){
+     pacX = 0;
+  }
+  if (pacX === [0][6] && keyIsDown(LEFT_ARROW)){
+     pacX = 21;
+  }
