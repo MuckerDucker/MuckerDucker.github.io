@@ -47,10 +47,6 @@ function draw() {
   displayGrid(grid);
 }
 
-// function showPac(){
-
-// }
-
 function displayGrid(grid) {
   let blocksWidth = width / grid[0].length;
   let blocksHeight = height / grid.length;
