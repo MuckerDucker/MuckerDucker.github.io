@@ -95,6 +95,7 @@ function movePac(){
     pacY += 5;
   }
   
+  
   if (pacX === [21][6] && keyIsDown(RIGHT_ARROW)){
      pacX = 0;
   }
