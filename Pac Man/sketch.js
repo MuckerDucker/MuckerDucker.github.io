@@ -10,8 +10,8 @@
 
 // defining global variables
 
-let cellWidth;
-let cellHeight;
+let blocksWidth;
+let blocksHeight;
 let pacX = 0;
 let pacY = 0;
 let pacRightImg;
@@ -24,8 +24,8 @@ let grid = [
   [B, 0, 0, 0, 0, B, 0, 0, 0, 0, 0, 0, 0, 0, B, 0, 0, 0, 0, B],      
   [B, 0, B, B, 0, B, 0, B, B, B, B, B, B, 0, B, 0, B, B, 0, B],
   [B, 0, B, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, B, 0, B],
-  [B, 0, B, 0, B, B, 0, B, B, 0, 0, B, B, 0, B, B, 0, B, 0, B],
-  [0, 0, 0, 0, 0, 0, 0, B, 0, 0, 0, 0, B, 0, 0, 0, 0, 0, 0, 0],
+  [B, 0, B, 0, B, B, 0, B, B, 1, 1, B, B, 0, B, B, 0, B, 0, B],
+  [0, 0, 0, 0, 0, 0, 0, B, 1, 1, 1, 1, B, 0, 0, 0, 0, 0, 0, 0],
   [B, 0, B, 0, B, B, 0, B, B, B, B, B, B, 0, B, B, 0, B, 0, B],
   [B, 0, B, 0, 0, 0, 0, 0, 0, M, 0, 0, 0, 0, 0, 0, 0, B, 0, B],
   [B, 0, B, B, 0, B, 0, B, B, B, B, B, B, 0, B, 0, B, B, 0, B],
@@ -52,23 +52,27 @@ function draw() {
 // }
 
 function displayGrid(grid) {
-  let cellWidth = width / grid[0].length;
-  let cellHeight = height / grid.length;
+  let blocksWidth = width / grid[0].length;
+  let blocksHeight = height / grid.length;
   for (let y=0; y<grid.length; y++) {
     for (let x=0; x<grid[y].length; x++) {
       if (grid[y][x] === 0) {
         fill("black");
-        rect(x*cellWidth, y*cellHeight, cellWidth, cellHeight);
-        image(foodImg, x*cellWidth, y*cellHeight, cellWidth, cellHeight);
+        rect(x*blocksWidth, y*blocksHeight, blocksWidth, blocksHeight);
+        image(foodImg, x*blocksWidth, y*blocksHeight, blocksWidth, blocksHeight);
       }
       else if (grid[y][x] === B) {
         fill("blue");
-        rect(x*cellWidth, y*cellHeight, cellWidth, cellHeight);
+        rect(x*blocksWidth, y*blocksHeight, blocksWidth, blocksHeight);
       }
       else if(grid[y][x] === M){
         fill("black");
-        rect(x*cellWidth, y*cellHeight, cellWidth, cellHeight);
-        image(pacRightImg, x*cellWidth, y*cellHeight, cellWidth, cellHeight);
+        rect(x*blocksWidth, y*blocksHeight, blocksWidth, blocksHeight);
+        image(pacRightImg, x*blocksWidth, y*blocksHeight, blocksWidth, blocksHeight);
+      }
+      else if(grid[y][x] === 1){
+        fill("black");
+        rect(x*blocksWidth, y*blocksHeight, blocksWidth, blocksHeight);
       }
     }
   }
@@ -102,3 +106,4 @@ function movePac(){
   if (pacX === [0][6] && keyIsDown(LEFT_ARROW)){
      pacX = 21;
   }
+}
