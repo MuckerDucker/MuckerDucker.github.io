@@ -1,9 +1,8 @@
-// Pac Man
+// Pac Man 1v1
 // Kati Kesur
 // October 31, 2022
 //
 // Extra for Experts: use 2d arrays in a different way then in class
-// implemented sound effects for pac-man eating food and winning
 // if pac-man and the ghost collide, the ghost wins
 // code checks for how much food is left, if all is eaten, pac-man wins!
 // if window is resized, refresh the page and it should adjust accordingly
