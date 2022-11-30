@@ -20,6 +20,9 @@ let ghostY = 5;
 let pacImg;
 let ghostImg;
 let foodImg;
+let startImg;
+let pacWinImg;
+let ghostWinImg;
 let B = 2;
 let M = 3;
 let G = 4;
@@ -62,8 +65,8 @@ function startScreen() {
 
 function draw() {
   if (state === "start"){
-    startScreen()
-    }
+    startScreen();
+  }
   if (state === "main"){
     displayGrid(grid);
     foodchecker();
@@ -112,7 +115,7 @@ function foodchecker(){
       }
     }
   }
-  if (foodcounter = 0){
+  if (foodcounter === 0){
     background(pacWinImg);
   } 
 }
@@ -182,77 +185,77 @@ function keyPressed(){
     }
   }
 
-    // Ghost movement
-    if (keyCode === 87) {
-      if (grid[ghostY-1][ghostX] !== B){
-        // ensuring the ghost leaves no trail
-        if(grid[ghostY-1][ghostX] === 1){
-          grid[ghostY][ghostX] = 1;
-        }
-        if(grid[ghostY-1][ghostX] === 0){
-          grid[ghostY][ghostX] = 0;
-        }
+  // Ghost movement
+  if (keyCode === 87) {
+    if (grid[ghostY-1][ghostX] !== B){
+      // ensuring the ghost leaves no trail
+      if(grid[ghostY-1][ghostX] === 1){
+        grid[ghostY][ghostX] = 1;
+      }
+      if(grid[ghostY-1][ghostX] === 0){
+        grid[ghostY][ghostX] = 0;
+      }
 
-        //move
-        ghostY--;
+      //move
+      ghostY--;
   
-        //changes ghost's location
-        grid[ghostY][ghostX] = G;
-      }
+      //changes ghost's location
+      grid[ghostY][ghostX] = G;
     }
+  }
   
-    if (keyCode === 83) {
-      if (grid[ghostY+1][ghostX] !== B){
-        // ensuring the ghost leaves no trail
-        if(grid[ghostY+1][ghostX] === 1){
-          grid[ghostY][ghostX] = 1;
-        }
-        if(grid[ghostY+1][ghostX] === 0){
-          grid[ghostY][ghostX] = 0;
-        }
-        //move
-        ghostY++;
-  
-        //changes ghost's location
-        grid[ghostY][ghostX] = G;
+  if (keyCode === 83) {
+    if (grid[ghostY+1][ghostX] !== B){
+      // ensuring the ghost leaves no trail
+      if(grid[ghostY+1][ghostX] === 1){
+        grid[ghostY][ghostX] = 1;
       }
-    }
+      if(grid[ghostY+1][ghostX] === 0){
+        grid[ghostY][ghostX] = 0;
+      }
+      //move
+      ghostY++;
   
-    if (keyCode === 68) {
-      if (grid[ghostY][ghostX + 1] !== B){
-        // ensuring the ghost leaves no trail
-        if(grid[ghostY][ghostX + 1] === 1){
-          grid[ghostY][ghostX] = 1;
-        }
-        if(grid[ghostY][ghostX + 1] === 0){
-          grid[ghostY][ghostX] = 0;
-        }
+      //changes ghost's location
+      grid[ghostY][ghostX] = G;
+    }
+  }
+  
+  if (keyCode === 68) {
+    if (grid[ghostY][ghostX + 1] !== B){
+      // ensuring the ghost leaves no trail
+      if(grid[ghostY][ghostX + 1] === 1){
+        grid[ghostY][ghostX] = 1;
+      }
+      if(grid[ghostY][ghostX + 1] === 0){
+        grid[ghostY][ghostX] = 0;
+      }
         
-        //move
-        ghostX++;
+      //move
+      ghostX++;
   
-        //changes ghost's location
-        grid[ghostY][ghostX] = G;
-      }
+      //changes ghost's location
+      grid[ghostY][ghostX] = G;
     }
+  }
   
-    if (keyCode === 65) {
-      if (grid[ghostY][ghostX - 1] !== B){
-        // ensuring the ghost leaves no trail
-        if(grid[ghostY][ghostX - 1] === 1){
-          grid[ghostY][ghostX] = 1;
-        }
-        if(grid[ghostY][ghostX - 1] === 0){
-          grid[ghostY][ghostX] = 0;
-        }
+  if (keyCode === 65) {
+    if (grid[ghostY][ghostX - 1] !== B){
+      // ensuring the ghost leaves no trail
+      if(grid[ghostY][ghostX - 1] === 1){
+        grid[ghostY][ghostX] = 1;
+      }
+      if(grid[ghostY][ghostX - 1] === 0){
+        grid[ghostY][ghostX] = 0;
+      }
         
-        //move
-        ghostX-- ;
+      //move
+      ghostX-- ;
   
-        //changes ghost's location
-        grid[ghostY][ghostX] = G;
-      }
+      //changes ghost's location
+      grid[ghostY][ghostX] = G;
     }
+  }
 }
 
 
