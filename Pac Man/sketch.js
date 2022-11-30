@@ -35,7 +35,7 @@ let grid = [
   [B, 0, B, B, 0, B, 0, B, B, B, B, B, B, 0, B, 0, B, B, 0, B],
   [B, 0, B, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, B, 0, B],
   [B, 0, B, 0, B, B, 0, B, B, 1, 1, B, B, 0, B, B, 0, B, 0, B],
-  [B, 0, 0, 0, 0, 0, 0, B, G, 1, 1, 1, B, 0, 0, 0, 0, 0, 0, B],
+  [0, 0, 0, 0, 0, 0, 0, B, G, 1, 1, 1, B, 0, 0, 0, 0, 0, 0, 0],
   [B, 0, B, 0, B, B, 0, B, B, B, B, B, B, 0, B, B, 0, B, 0, B],
   [B, 0, B, 0, 0, 0, 0, 0, 0, M, 0, 0, 0, 0, 0, 0, 0, B, 0, B],
   [B, 0, B, B, 0, B, 0, B, B, B, B, B, B, 0, B, 0, B, B, 0, B],
@@ -69,6 +69,7 @@ function draw() {
   }
   if (state === "main"){
     displayGrid(grid);
+    moveWhenSide();
     foodchecker();
     ghostWin(); 
   }
@@ -259,13 +260,15 @@ function keyPressed(){
 }
 
 
-// Code for Final Project
-//if (grid[21][6] && keyCode === RIGHT_ARROW){
-//  pacX = 0;
-//  grid[pacY][pacX] = M;
+//Code for Final Project
+function moveWhenSide(){
+  if (grid[21][6] && keyCode === RIGHT_ARROW){
+    pacX = 0;
+    grid[pacY][pacX] = M;
 
-//}
-//if (grid[0][6] && keyCode === LEFT_ARROW){
-//  pacX = 21;
-//  grid[pacY][pacX] = M;
-//}
+  }
+  if (grid[0][6] && keyCode === LEFT_ARROW){
+    pacX = 21;
+    grid[pacY][pacX] = M;
+  }
+}
